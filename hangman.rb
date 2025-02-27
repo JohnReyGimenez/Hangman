@@ -6,9 +6,7 @@ class Hangman
   end
 
   def select_word
-    contents.each do |word|
-     if word.size => 5 && word.size <= 12
-      return word
-    end    
+    valid_word = contents.select {|word| word.size => 5 && word.size <= 12}
+    valid_words.sample
   end
 end
