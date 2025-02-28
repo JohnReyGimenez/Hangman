@@ -3,6 +3,9 @@ require 'csv'
 class Hangman
   def initialize
     @contents = File.read('google-10000-english-no-swears.txt ').split("\n")
+    @secret_word = select_word
+    @guessed_letters = Array.new(@secret_word.length, '_')
+    @remaining_attempts = 6
   end
 
   def select_word
@@ -20,7 +23,7 @@ class Hangman
     puts "Word: #{guessed_letters.join(' ')}"
     puts "Remaining attempts: #{remaining_attempts}"
 
-    
+
     array = create_array(select_word)
     puts "#{array[0]} #{array[0]} #{array[0]} #{array[0]} #{array[0]}"
   end
