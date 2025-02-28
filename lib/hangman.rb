@@ -16,10 +16,13 @@ class Hangman
     return array
   end
 
-  def display_board
-    create_array(select_word)
-    puts "word[] word[1] word[2] word[3] word[4] word[5] word[6] 
-    word[7] word[8] word[9] word[10] word[11]"
+  def display_board(guessed_letters, remaining_attempts)
+    puts "Word: #{guessed_letters.join(' ')}"
+    puts "Remaining attempts: #{remaining_attempts}"
+
+    
+    array = create_array(select_word)
+    puts "#{array[0]} #{array[0]} #{array[0]} #{array[0]} #{array[0]}"
   end
 
   def play_game
@@ -41,3 +44,17 @@ end
 # when the player inputs the letter it gets the position(index)
 # and then uses that to turn the "_" array the element and replaces the same index 
 # basically updating the other array
+
+revised:
+
+# Randomly select a word between 5 and 12 letters.
+# Convert the word into an array of characters.
+# Create another array of "_" with the same length as the word.
+# Player guesses a letter.
+# If the letter is in the word:
+# . If the letter is incorrect:
+#   - Track the mistake.
+#   - Display remaining attempts.
+# Repeat until:
+#   - All letters are guessed (win condition).
+#   - Maximum mistakes reached (lose condition).
