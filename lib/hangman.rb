@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 class Hangman
@@ -10,110 +12,115 @@ class Hangman
   end
 
   def select_word
-    valid_word = @contents.select {|word| word.size >= 5 && word.size <= 12}
-    return valid_word.sample
+    valid_word = @contents.select { |word| word.size >= 5 && word.size <= 12 }
+    valid_word.sample
   end
 
   def display_board(guessed_letters, remaining_attempts)
     puts "Word: #{guessed_letters.join(' ')}"
-    puts "Remaining attempts: #{remaining_attempts}"
     puts "Incorrect guesses: #{@incorrect_guesses.join(', ')}" unless @incorrect_guesses.empty?
+
+    puts "Remaining attempts: #{remaining_attempts}"
+    display_hangman
   end
 
   def display_hangman
     case @remaining_attempts
     when 6
       puts <<~HANGMAN
-              _______
-              |     |
-              |     
-              |    
-              |  
-              |  
-              |
-            __|__
+          _______
+          |     |
+          |
+          |
+          |
+          |
+          |
+        __|__
       HANGMAN
     when 5
       puts <<~HANGMAN
-              _______
-              |     |
-              |     ○
-              |    
-              |  
-              |  
-              |
-            __|__
+          _______
+          |     |
+          |     ○
+          |
+          |
+          |
+          |
+        __|__
       HANGMAN
     when 4
       puts <<~HANGMAN
-              _______
-              |     |
-              |     ○
-              |     |
-              |  
-              |  
-              |
-            __|__
+          _______
+          |     |
+          |     ○
+          |     |
+          |
+          |
+          |
+        __|__
       HANGMAN
     when 3
       puts <<~HANGMAN
-              _______
-              |     |
-              |     ○
-              |    ⎺|⎺
-              |  
-              |  
-              |
-            __|__
+          _______
+          |     |
+          |     ○
+          |    ⎺|⎺
+          |
+          |
+          |
+        __|__
       HANGMAN
     when 2
       puts <<~HANGMAN
-              _______
-              |     |
-              |     ○
-              |    ⎺|⎺
-              |     ╱ 
-              |  
-              |
-            __|__
+          _______
+          |     |
+          |     ○
+          |    ⎺|⎺
+          |    ╱
+          |
+          |
+        __|__
       HANGMAN
     when 1
       puts <<~HANGMAN
-              _______
-              |     |
-              |     ○
-              |    ⎺|⎺
-              |     ╱ ╲
-              |  
-              |
-            __|__
+          _______
+          |     |
+          |     ○
+          |    ⎺|⎺
+          |    ╱ ╲
+          |
+          |
+        __|__
       HANGMAN
     when 0
       puts <<~HANGMAN
-              _______
-              |     |
-              |     ○
-              |    ⎺|⎺
-              |     ╱ ╲
-              |  
-              |
-            __|__
+          _______
+          |     |
+          |     ○
+          |    ⎺|⎺
+          |    ╱ ╲
+          |
+          |
+        __|__
       HANGMAN
     end
   end
 
   def play_game
-    loop
-
-    end
   end
 
   def get_player_input
-    puts 'Enter your guess'
+    puts 'Enter a letter for your guess'
+    input = gets.chomp.downcase
+
+    until input.length == 1 && input >= 'a' && input <= 'z'
+      puts 'Invalid input. Please enter a single letter'
+      input = gets.chomp.downcase
+    end
+
+    input
   end
 end
-
-
 
 # revised:
 
@@ -139,6 +146,6 @@ end
 #              ○     |
 #             ⎺|⎺    |
 #             ╱ ╲    |
-#                    |  
-#                    |  
+#                    |
+#                    |
 #                    |
