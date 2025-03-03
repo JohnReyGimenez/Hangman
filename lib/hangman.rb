@@ -1,34 +1,15 @@
 # frozen_string_literal: true
 
-require 'csv'
+require_relative 'hangman/display'
+require_relative 'hangman/game'
+require_relative 'hangman/save_load'
+require_relative 'hangman/word_bank'
 
-class Hangman
-  def initialize
-    @contents = File.read('google-10000-english-no-swears.txt ').split("\n")
-    @secret_word = select_word
-    @guessed_letters = Array.new(@secret_word.length, '_')
-    @remaining_attempts = 6
-    @incorrect_guesses = []
-  end
-
-  def select_word
-    valid_word = @contents.select { |word| word.size >= 5 && word.size <= 12 }
-    valid_word.sample
-  end
-
-  def play_game
-  end
-
-  def get_player_input
-    puts 'Enter a letter for your guess'
-    input = gets.chomp.downcase
-
-    until input.length == 1 && input >= 'a' && input <= 'z'
-      puts 'Invalid input. Please enter a single letter'
-      input = gets.chomp.downcase
-    end
-
-    input
+module Hangman
+  def self.start
+    word_bank = WordBank.new('data/google-10000-english-no-swears.txt')
+    game = Game.new(word_bank)
+    game.play_game
   end
 end
 
