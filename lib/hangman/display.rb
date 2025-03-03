@@ -2,9 +2,9 @@
 
 module Hangman
   class Display
-    def display_board(guessed_letters, remaining_attempts)
+    def display_board(guessed_letters, incorrect_guesses, remaining_attempts)
       puts "Word: #{guessed_letters.join(' ')}"
-      puts "Incorrect guesses: #{@incorrect_guesses.join(', ')}" unless @incorrect_guesses.empty?
+      puts "Incorrect guesses: #{incorrect_guesses.join(', ')}" unless incorrect_guesses.empty?
 
       puts "Remaining attempts: #{remaining_attempts}"
       display_hangman
