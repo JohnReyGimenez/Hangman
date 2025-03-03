@@ -2,6 +2,8 @@
 
 module Hangman
   class Game
+    attr_reader :secret_word, :guessed_letters, :incorrect_guesses, :remaining_attempts
+
     def initialize
       @contents = File.read('google-10000-english-no-swears.txt ').split("\n")
       @secret_word = select_word
