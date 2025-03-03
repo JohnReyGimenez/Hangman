@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Hangman
   class Display
     def display_board(guessed_letters, remaining_attempts)
