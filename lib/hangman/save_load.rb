@@ -8,5 +8,17 @@ module Hangman
       end
       puts 'Game saved.'
     end
+
+    def load_game(filename = 'hangman_save.dat')
+      if file.exist?(filename)
+
+        File.open(filename, 'rb') do |file| # opens file in read binary
+          Marshal.load(file.read)
+        end
+      else
+        puts 'No saved game found.'
+        nil
+      end
+    end
   end
 end
