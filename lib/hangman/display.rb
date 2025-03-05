@@ -10,8 +10,8 @@ module Hangman
       display_hangman
     end
 
-    def display_hangman
-      case @remaining_attempts
+    def display_hangman(remaining_attempts)
+      case remaining_attempts
       when 6
         puts <<~HANGMAN
             _______
