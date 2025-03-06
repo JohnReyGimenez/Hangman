@@ -6,7 +6,7 @@ module Hangman
 
     def initialize(word_bank)
       @contents = word_bank.select_word
-      @secret_word = select_word
+      @secret_word = word_bank.select_word
       @guessed_letters = Array.new(@secret_word.length, '_')
       @remaining_attempts = 6
       @incorrect_guesses = []
@@ -41,7 +41,7 @@ module Hangman
       puts "Enter a letter for your guess, or type 'save' to save the game:"
       input = gets.chomp.downcase
 
-      until input.length == 1 && input >= 'a' && input <= 'z'
+      until (input.length == 1 && input >= 'a' && input <= 'z') || input == 'save'
         puts 'Invalid input. Please enter a single letter'
         input = gets.chomp.downcase
       end
