@@ -7,7 +7,7 @@ module Hangman
       puts "Incorrect guesses: #{incorrect_guesses.join(', ')}" unless incorrect_guesses.empty?
 
       puts "Remaining attempts: #{remaining_attempts}"
-      display_hangman
+      display_hangman(remaining_attempts)
     end
 
     def display_hangman(remaining_attempts)
