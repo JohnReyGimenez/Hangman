@@ -19,27 +19,80 @@ Welcome to Hangman, a classic word-guessing game where you try to guess a secret
 Hangman is a single-player game where you guess letters to reveal a secret word. You have 6 attempts to guess the word correctly. If you guess all the letters before running out of attempts, you win! Otherwise, you lose.
 
 ### Game Flow
-1. Start the game by running the program.
+1.**Start the Game:**
 
-2. Choose to start a new game or load a saved game.
+- Run the program by executing ruby main.rb.
 
-3. If starting a new game:
+- You will be greeted with a welcome message and a menu:
+   ```bash
+  Copy
+  Welcome to Hangman!
+  1. New Game
+  2. Load Game
+2.**Choose an Option:**
 
-  -A secret word is randomly selected.
+- Select 1 to start a new game.
+- Select 2 to load a saved game.
 
-  -The word is displayed as underscores (_ _ _ _ _), representing each letter.
+3.**New Game:**
 
-4. Guess a letter by typing it and pressing Enter.
+- A secret word is randomly selected from the dictionary.
+- The word is displayed as underscores (_ _ _ _ _), representing each letter.
 
-  -If the letter is in the word, it will be revealed in the correct position(s).
+- Example:
+  ```bash
+  Word: _ _ _ _ _
+  Remaining attempts: 6
+4.**Guess a Letter:**
 
-  -If the letter is not in the word, you lose an attempt.
+- You will be prompted to enter a letter:
+  ```bash
+  Enter a letter for your guess, or type 'save' to save the game:
+- Type a single letter (e.g., a) and press Enter.
+- If the letter is in the word, it will be revealed in the correct position(s).
+  ```bash
+  Word: _ a _ _ _
+  Remaining attempts: 6
+  
+If the letter is not in the word, you lose an attempt.\
+  ```bash
+  Word: _ a _ _ _
+  Remaining attempts: 5
+```
 
-5. You can type 'save' at any time to save your progress and exit the game.
+5.**Save the Game:**
+- At any point, you can type 'save' to save your progress and exit the game.
+Example:
+ ```bash
+Enter a letter for your guess, or type 'save' to save the game:
+save
+Game saved.
+```
+6.**Load a Saved Game:**
 
-7. If you guess all the letters before running out of attempts, you win!
-
-9. If you run out of attempts, you lose, and the secret word is revealed.
+- If you choose to load a saved game, the game state will be restored.
+- Example:
+  ```bash
+  Welcome to Hangman!
+  1. New Game
+  2. Load Game
+  2
+  Game loaded!
+  Word: _ a _ _ _
+  Remaining attempts: 5
+7.**Win the Game:**
+- If you guess all the letters before running out of attempts, you win!
+- Example:
+  ```bash
+  Word: h a n g m a n
+  You won!! The word was hangman
+8.**Lose the Game:**
+- If you run out of attempts, you lose, and the secret word is revealed.
+- Example:
+  ```bash
+  Word: _ a _ _ _
+  Remaining attempts: 0
+  You lost! The word was apple
 
 ---
 
@@ -78,23 +131,23 @@ To run the game locally, execute the main file. Follow the on-screen instruction
 ## Optimizations
 Here are the key optimizations made during development:
 ### Save/Load Feature:
-  -Added the ability to save and load the game state using Ruby's Marshal module.
-  -Ensured the game state is restored correctly when loading.
+  - Added the ability to save and load the game state using Ruby's Marshal module.
+  - Ensured the game state is restored correctly when loading.
 
 ### Input Validation:
-  -Improved input validation to ensure only valid letters or the 'save' command are accepted.
+  - Improved input validation to ensure only valid letters or the 'save' command are accepted.
 
 ### Modular Code:
-  -Separated the game logic into modular classes (Game, Display, SaveLoad, WordBank) for better readability and maintainability.
+  - Separated the game logic into modular classes (Game, Display, SaveLoad, WordBank) for better readability and maintainability.
 
 ### ASCII Art:
-  -Added ASCII art for the hangman figure to make the game more visually appealing.
+  - Added ASCII art for the hangman figure to make the game more visually appealing.
 ---
 
 ## Lessons Learned
---  Serialization: Learned how to use Ruby's Marshal module to save and load game states.
+--  **Serialization:** Learned how to use Ruby's Marshal module to save and load game states.
 
--- **Modular Design: Gained experience in organizing code into modular classes for better maintainability.
+-- **Modular Design:** Gained experience in organizing code into modular classes for better maintainability.
 
 -- **User Input Handling:** Improved skills in validating and processing user input in a command-line application.
 
@@ -110,8 +163,8 @@ This project does not currently include a test suite. However, you can manually 
 
 ## Credits
 - **Developer**: John Rey G. Gimenez
-- **Inspiration**: Classic Han game.
-- **Tools**: Ruby, `colorize` gem.
+- **Inspiration**: Classic Hangman game.
+- **Tools**: Ruby
 
 ---
 
