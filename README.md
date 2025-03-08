@@ -1,17 +1,18 @@
 # Hangman
+
 Welcome to Hangman, a classic word-guessing game where you try to guess a secret word before running out of attempts. This project is implemented in Ruby and features a simple command-line interface.
+
 ---
 
 ## Table of Contents
 1. [How to Play](#how-to-play)
 2. [Local Setup](#local-setup)
-3. [Known Issues](#known-issues)
-4. [Optimizations](#optimizations)
-5. [Lessons Learned](#lessons-learned)
-6. [Running the Game](#running-the-game)
-7. [Running Tests](#running-tests)
-8. [Credits](#credits)
-9. [Licence](#License)
+3. [Optimizations](#optimizations)
+4. [Lessons Learned](#lessons-learned)
+5. [Running the Game](#running-the-game)
+6. [Running Tests](#running-tests)
+7. [Credits](#credits)
+8. [Licence](#License)
 
 ---
 
