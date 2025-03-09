@@ -23,7 +23,6 @@ Hangman is a single-player game where you guess letters to reveal a secret word.
 1.**Start the Game:**
 
 - Run the program by executing ruby main.rb.
-
 - You will be greeted with a welcome message and a menu:
    ```bash
   Copy
