@@ -170,7 +170,3 @@ This project does not currently include a test suite. However, you can manually 
 
 ### License
 This project is open-source and available under the  [MIT License](LICENSE).
-
----
-
-Enjoy playing Mastermind! If you have any questions or feedback, feel free to reach out.
